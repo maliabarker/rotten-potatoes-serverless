@@ -1,0 +1,15 @@
+<!-- views/reviews-edit.handlebars -->
+
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <form method="POST" action="/movies/{{review.movieId}}/reviews/{{review._id}}?_method=PUT">
+      {{> reviews-form}}
+      <!-- BUTTON -->
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Save Review</button>
+      </div>
+    </form>
+    <a href="/movies/{{review.movieId}}"><button>Cancel</button></a>
+  </div>
+</div>
+

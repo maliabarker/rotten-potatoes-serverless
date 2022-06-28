@@ -1,0 +1,42 @@
+<!-- movies-show.handlebars -->
+
+<div class="row">
+    <div class="text-right">
+        <a href="/movies/{{movie.id}}/reviews/new" class="btn btn-primary">New Review</a>
+    </div>
+
+    <div class="col-sm-4">
+        <img class="img-responsive" src="https://image.tmdb.org/t/p/w300{{movie.poster_path}}"/>
+    </div>
+    
+    <div class="col-sm-8">
+        <h1>{{movie.title}}</h1>
+        <p class="lead">{{movie.overview}}</p>
+         <div class="col-sm-12">
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{movie.trailer_youtube_id}}?rel=0"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <h4 class="text-center">Similar Movies</h4>
+    {{#each movie.similar_vids}}
+        <div class="col-md-4 card">
+            <div class="card-body">
+                <h5 class="card-title">{{this.title}}</h5>
+                <a href="/movies/{{this.id}}"><img alt="{{this.title}}" src="https://image.tmdb.org/t/p/w154{{this.poster_path}}"></a>
+            </div>
+        </div>
+    {{/each}} 
+</div>
+
+<hr>
+
+<div class="col-sm-12">
+    <h1 class="col-sm-6 col-sm-offset-3">Reviews</h1>
+    {{#each reviews}}
+        {{> review}}
+    {{/each}}
+</div>

@@ -1,0 +1,14 @@
+org: maliabarker
+app: rotten-potatoes-serverless
+service: rotten-potatoes-serverless
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+
+functions:
+  api:
+    handler: app.handler
+    events:
+      - httpApi: '*'
